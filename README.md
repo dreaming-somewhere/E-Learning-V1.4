@@ -1,16 +1,15 @@
-# E-LEARN-V1.3
-
 Project context
 
-Vous êtes un développeur backend, votre équipe a besoin de vous pour développer le backend du login de l'application web E-Classe.
+You are a Full Stack developer, your team needs you to do some frontend and backend tasks for the E-class project. These tasks concern the following user stories:
 
-Vous devez, donc, répondre aux histoires suivantes :
+    As a user I can register to participate in the courses offered by the platform.
+    As a frontend developer, I create the registration form.
+    As a backend developer I realize the backend of the registration form.
+    As a frontend JS developer I handle the validation part of all the forms of the platform.
+    As a frontend developer I make sure that the insertion and update forms are displayed in the same page using modals.
+    As a developer I make sure that a confirmation in modal format is displayed before deletion.
+    As a developer I add notifications in toast format to improve the UX of the platform.
+    As a developer I make sure that passwords are encrypted in the database.
 
-    Autant que Développeur backend PHP, je peux modifier la base de donnéer en ajoutant la table "comptes" contenant les données des utilisateurs de l'application.
-    Autant que Développeur backend PHP, je peux m'assurer que le formulaire est valide avant d'intérroger la base de donnée.
-    Autant que Développeur backend PHP, je peux m'assurer que l'utilisateur est informé que l'authentification a echoué lorsqu'il fournit des infomation incorrectes, ainsi le garder dans la page d'authentification.
-    Autant que Développeur backend PHP, je peux m'assurer que l'utilisateur est redirigé vers le dashboard lorsque l'authentification passe avec succès.
-    Autant que Développeur backend PHP, je peux m'assurer de donner le choix d'enregistrer les informations de connection afin qu'il puisse utiliser la fonction d'auto saisie lorsqu'il essay de se connecter.
-    Autant que Développeur backend PHP, je peux m'assurer que le utilisateur est connecté pendant 24 heures avant que l'application lui demande à nouveaux de s'authentifier.
-    Autant que Développeur backend PHP, je peux m'assurer que nom d'utilisateur remplace le nom générique **admin name **dans la maquette.
-    Autant que Développeur backend PHP, je peux m'assurer que l'authentification est sécurisé (optionnel).
+
+Translated with www.DeepL.com/Translator (free version)
