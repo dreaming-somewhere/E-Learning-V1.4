@@ -37,6 +37,7 @@
                 $lastname = $row['lastname'];
                 $_SESSION["firstname"] = $firstname;
                 $_SESSION["lastname"] = $lastname;
+                $_SESSION["deleted"] = 0;
                 $_SESSION["last_login_timestamp"] = time();
                 echo "<script>
                        window.location.href = 'index.php';
