@@ -148,10 +148,10 @@ if ($_SESSION['firstname']) {
                             }
 
                             if ($_SESSION["deleted"]) {
-                              echo '<div class="alert alert-danger alert-dismissible text-center fade show" role="alert">
-Succesfully deleted.
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>';
+                              echo '<div class="position-relative bot-0 alert alert-danger alert-dismissible text-center fade show" role="alert">
+                              Succesfully deleted.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>';
                             }
                             $_SESSION["deleted"] = 0;
                             if (isset($_GET['delete'])) {
