@@ -68,7 +68,7 @@
             $lastname = mysqli_real_escape_string($connection, $lastname);
             $email = mysqli_real_escape_string($connection, $email);
             $password = mysqli_real_escape_string($connection, $password);
-
+        
             $query = "INSERT INTO users(firstname, lastname, email, password) ";
             $query .= "VALUES ('$firstname', '$lastname', '$email', '$password')";
             $anotherRes = mysqli_query($connection, $query);
@@ -114,7 +114,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input id='password' name="password" type="password" class="form-control p-2" placeholder="Enter your password">
+                <input id='password' name="password" type="password" class="form-control p-2" placeholder="Enter your password" required>
               </div>
               <div id="error"></div>
               <div class="d-grid gap-2 my-4">
@@ -137,7 +137,7 @@
 
 
 
-        <script>
+        <script> 
         const fname = document.getElementById('fname')
         const lname = document.getElementById('lname')
         const email = document.getElementById('email')
@@ -146,29 +146,31 @@
         const errorElement = document.getElementById('error')
 
         form.addEventListener('submit', (e) => {
+          let messages = []
           if (fname.value === '') {
-            errorElement.innerHTML += '<p class="text-center">First Name is required</p>'
+            messages.push('Name is required')
           }
           if (lname.value === '') {
-            errorElement.innerHTML += '<p class="text-center">Last Name is required</p>'
+            messages.push('Name is required')
           }
           if (email.value === '') {
-            errorElement.innerHTML += '<p class="text-center">Email is required</p>'
+            messages.push('Email is required')
           }
           if (password.value === '') {
-            errorElement.innerHTML += '<p class="text-center">Please enter a Password</p>'
+            messages.push('Please enter a Password')
           }
 
           if (password.value.length <= 6) {
-            errorElement.innerHTML += '<p class="text-center">Password must be longer than 6 characters</p>'
+            messages.push('Password must be longer than 6 characters')
           }
 
           if (password.value.length >= 20) {
-            errorElement.innerHTML += '<p class="text-center">Password must not be greater than 20 character</p>'
+            messages.push('Password must be less than 20 characters')
           }
 
-          if (form.innerHTML) {
+          if (messages.length > 0) {
             e.preventDefault()
+            errorElement.innerText = messages.join(', ')
           }
         })
       </script>
