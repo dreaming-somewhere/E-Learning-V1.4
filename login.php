@@ -23,7 +23,7 @@
           }
           if (isset($_POST['submit'])) {
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $password = md5($_POST['password']);
 
             $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
             $query = "SELECT firstname, lastname, email, password FROM users";
@@ -76,14 +76,15 @@
           </div>
           <!-- IDEA: form -->
           <div class="">
-            <form action="login.php" method="post">
+            <form action="login.php" method="post" id="form">
               <div class="mb-3">
                 <label class="form-label">Email</label>
-                <input name="email" type="email" class="form-control p-2" placeholder="Enter your email" required>
+                <input id="email" name="email" type="email" class="form-control p-2" placeholder="Enter your email" required>
               </div>
+              <div id="error"></div>
               <div class="mb-3">
                 <label class="form-label">Password</label>
-                <input name="password" type="password" class="form-control p-2" placeholder="Enter your password" required>
+                <input id="password" name="password" type="password" class="form-control p-2" placeholder="Enter your password" required>
               </div>
               <div class="d-grid gap-2 my-4">
               <button type="submit" name="submit" class="btn btn-primary text-uppercase" style="background-color:#00c1fe;">Sign in</button>
@@ -106,6 +107,28 @@
 
 
 
+    <script>
+        const name = document.getElementById('name')
+        const password = document.getElementById('password')
+        const form = document.getElementById('form')
+        const errorElement = document.getElementById('error')
+
+        form.addEventListener('submit', (e) => {
+          let messages = []
+          if (email.value === '') {
+            messages.push('Name is required')
+          }
+
+          if (password.value === 'password') {
+            messages.push('Password is required')
+          }
+
+          if (messages.length > 0) {
+            e.preventDefault()
+            errorElement.innerText = messages.join(', ')
+          }
+        })
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>

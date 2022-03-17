@@ -101,10 +101,12 @@ if ($_SESSION['firstname']) {
                      $query .= "VALUES ('$name', '$email', '$phone', '$enroll', '$date' )";
 
                      $results = mysqli_query($connection, $query);
+                     if ($results) {
+                       echo "<script>
+                       window.location.href = 'courses.php';
+                       </script>";
 
-                     echo "<script>
-                            window.location.href = 'courses.php';
-                          </script>";
+                     }
 
 
                    }
@@ -145,16 +147,23 @@ if ($_SESSION['firstname']) {
 
 
                             }
-
+                            if ($_SESSION["deleted"]) {
+                              echo '<div class="position-relative bot-0 alert alert-danger alert-dismissible text-center fade show" role="alert">
+                              Succesfully deleted.
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                              </div>';
+                              $_SESSION["deleted"] = 0;
+                            }
                             if (isset($_GET['delete'])) {
                               $id = $_GET['delete'];
                               $connection = mysqli_connect('localhost', 'root', '', 'e_classe_db');
                               $query = "DELETE FROM courses WHERE id=$id";
                               $results = mysqli_query($connection, $query);
                               if ($results) {
-                                echo '<div class="alert alert-success" role="alert">
-                                Succesfully deleted! Please refresh the page.
-                                </div>';
+                                $_SESSION["deleted"]++;
+                                echo "<script>
+                                       window.location.href = 'students.php';
+                                     </script>";
                               }
 
 
