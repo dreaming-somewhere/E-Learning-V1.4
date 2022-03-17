@@ -9,12 +9,12 @@ if ($_SESSION['firstname']) {
            window.location.href = 'login.php';
          </script>";
   }
-  elseif (!$_SESSION['firstname']) {
-    $_SESSION["logoff"]++;
-    echo "<script>
-           window.location.href = 'login.php';
-         </script>";
-  }
+
+}
+if (!$_SESSION['firstname']) {
+  echo "<script>
+         window.location.href = 'login.php';
+       </script>";
 }
 
 

@@ -20,6 +20,7 @@
             echo '<div class="alert alert-danger text-center rounded-3 shadow" role="alert">
             Session timed out.
             </div>';
+            $_SESSION["logoff"] = 0;
           }
           if (isset($_POST['submit'])) {
             $email = $_POST['email'];
